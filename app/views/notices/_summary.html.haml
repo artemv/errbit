@@ -43,4 +43,8 @@
     %tr
       %th Rel. Directory
       %td= notice.server_environment && notice.server_environment["project-root"]
+    - if notice.server_environment && notice.server_environment["repo-revision"]
+      %tr
+        %th Repository Revision
+        %td= notice.server_environment && notice.server_environment["repo-revision"]
 
