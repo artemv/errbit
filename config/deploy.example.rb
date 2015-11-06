@@ -6,11 +6,14 @@
 # `cap deploy` whenever you would like to deploy Errbit. Refer
 # to the Readme for more information.
 
+require "rvm/capistrano"
+
 config = YAML.load_file('config/config.yml')['deployment'] || {}
 
 require 'bundler/capistrano'
 load 'deploy/assets'
 
+set :rvm_ruby_string, '2.1.2'
 set :application, "errbit"
 set :repository,  config['repository']
 
