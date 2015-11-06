@@ -39,4 +39,8 @@ class Mailer < ActionMailer::Base
     mail :to      => recipients,
          :subject => "#{@user.name} commented on [#{@app.name}][#{@notice.environment_name}] #{@notice.message.truncate(50)}"
   end
+
+  def test_notification()
+    mail :to      => "andreyr@your-net-works.com", :subject => "Text"
+  end
 end
