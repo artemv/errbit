@@ -179,9 +179,8 @@ class Notice
   ##
   # Send email notification if needed
   def email_notification
-    #return true unless should_email?
-    #Mailer.err_notification(self).deliver
-    #Mailer.test_notification.deliver
+    return true unless should_email?
+    Mailer.err_notification(self).deliver
   rescue => e
     HoptoadNotifier.notify(e)
   end
