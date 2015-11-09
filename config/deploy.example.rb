@@ -42,7 +42,7 @@ set :branch, config['branch'] || 'master'
 
 before 'deploy:assets:symlink', 'errbit:symlink_configs'
 # if unicorn is started through something like runit (the tool which restarts the process when it's stopped)
-# after 'deploy:restart', 'unicorn:stop'
+after 'deploy:restart', 'unicorn:stop', 'deploy:cleanup'
 
 namespace :deploy do
   task :start do ; end
