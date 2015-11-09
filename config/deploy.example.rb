@@ -14,6 +14,7 @@ require 'bundler/capistrano'
 load 'deploy/assets'
 
 set :rvm_ruby_string, '2.1.2'
+set :rvm_type, :user
 set :application, "errbit"
 set :repository,  config['repository']
 
