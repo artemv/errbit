@@ -12,6 +12,14 @@ Fabricator :gtalk_notification_service, :from => :notification_service, :class_n
   service { sequence :word }
 end
 
-%w(campfire flowdock hipchat hoiio hubot pushover slack webhook).each do |t|
+Fabricator :slack_notification_service, :from => :notification_service, :class_name => "NotificationService::SlackService" do
+  service_url { sequence :word }
+end
+
+Fabricator :hipchat_notification_service, :from => :notification_service, :class_name => "NotificationService::HipchatService" do
+  service { 'v2' }
+end
+
+%w(campfire flowdock hoiio hubot pushover webhook).each do |t|
   Fabricator "#{t}_notification_service".to_sym, :from => :notification_service, :class_name => "NotificationService::#{t.camelcase}Service"
 end
