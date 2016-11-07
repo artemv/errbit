@@ -66,7 +66,6 @@ group :development, :test do
 end
 
 group :development do
-<<<<<<< HEAD
 #  gem 'capistrano', '~> 2.0', :require => false
   gem 'capistrano',         require: false
   gem 'capistrano-bundler', require: false
